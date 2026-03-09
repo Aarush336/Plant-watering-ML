@@ -1,9 +1,12 @@
-def check_water(temperatures):
-    if temperatures > 39:
+def check_water(plants):
+    if plants ["temperature"] > 39:
         return("Needs water")
     else:
         return("Normal")
-
-temperatures = [38, 42, 35, 40, 33, 41, 37]
-for temp in temperatures:
-        print(temp, check_water(temp))
+plants = [
+    {"name": "Cactus", "temperature": 38, "water_needed": False},
+    {"name": "Rose", "temperature": 42, "water_needed": True},
+    {"name": "Sunflower", "temperature": 35, "water_needed": False}
+]
+for breed in plants:
+    print(breed["name"] , breed["temperature"], check_water(breed))
