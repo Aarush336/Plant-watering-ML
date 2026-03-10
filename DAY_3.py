@@ -1,7 +1,9 @@
-# Practise Question 3: Create a list of humidity readings: [55, 70, 80, 45, 90, 60, 75]. Loop through them and print "High humidity" if above 70, "Normal" if 70 or below.
-humidity_readings = [55, 70, 80, 45, 90, 60, 75]
-for hum in humidity_readings:
-    if hum > 70:
-        print("High Humidity")
+# Practise Question 4: Write a function called plant_status that takes two parameters — temperature and humidity. If temperature is above 39 AND humidity is below 50 print "Critical". Otherwise print "Stable".
+
+def plant_status (temperature, humidity):
+    if temperature > 39 and humidity < 50:
+        return("Critical")
     else:
-        print("Normal")
+        return("Stable")
+
+print(plant_status(40, 70))
