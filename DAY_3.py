@@ -1,7 +1,14 @@
-# Practise Question 5: Create a numpy array of the humidity readings from Question 3. Print the mean, max, and min. Then print only the readings above 70.
+# Introduction to Panda's
+import pandas as pd
 import numpy as np
-humidity_reading = np.array([55, 70, 80, 45, 90, 60, 75])
-print(humidity_reading.mean())
-print(humidity_reading.max())
-print(humidity_reading.min())
-print(humidity_reading[humidity_reading > 70])
+
+data = {
+    "plant": ["Cactus", "Rose", "Sunflower", "Tulip"],
+    "temperature": [41, 42, 35, 41],
+    "humidity": [30, 65, 55, 60],
+    "water_needed": [False, True, False, True]
+}
+
+df = pd.DataFrame(data)
+df["status"] = np.where((df["temperature"] > 39) & (df["humidity"] < 50), "Critical", "Stable")
+print(df)
