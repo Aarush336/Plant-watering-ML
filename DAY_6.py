@@ -11,4 +11,15 @@ Plants = {
 }
 df = pd.DataFrame(Plants)
 df["water_needed"] = np.where(((df["temperature"] > 39) & (df["humidity"] < 40) & (df["soil_moisture"] < 40) & (df["days_since_last_watered"] > 3)), "Yes", "No")
-print(df)
+
+from sklearn.tree import DecisionTreeClassifier
+
+X = df[["temperature", "humidity", "soil_moisture", "days_since_last_watered"]]
+y = df["water_needed"]
+
+model = DecisionTreeClassifier()
+model.fit(X, y)
+
+new_plant = pd.DataFrame([[41, 35, 28, 5]], columns=["temperature", "humidity", "soil_moisture", "days_since_last_watered"])
+prediction = model.predict(new_plant)
+print("Water needed:", prediction[0])
